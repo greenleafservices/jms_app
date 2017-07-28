@@ -1,14 +1,9 @@
-doctype html
-html(lang="en")
-  head
-    title Flash Cards
-  body
-    header
-      h1 JMS Flash Cards
+
+extends layout.pug
+
+block content
     section#content
-      //ul
-        each color in colors
-          li=color 
+      
           
       h2= prompt
       if hint
@@ -16,5 +11,3 @@ html(lang="en")
           i Hint: #{hint}
       else
         h3 Sorry, no hint is available for this question
-    footer
-      p An app to help you study

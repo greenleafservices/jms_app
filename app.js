@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false}));
 
 //const colors = [
 //  'red',
@@ -18,14 +21,22 @@ app.get('/', (req, res) => {
 });
 
 app.get('/cards', (req, res) => {
-    res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is." });
-//  res.render('card', { prompt: "Who is buried in Grant's tomb?", colors});
+    res.render('card', { prompt: "Who is buried in Grant's tomb?" });
+});
+
+app.get('/hello', (req, res) => {
+  res.render('hello');
+});
+
+app.post('/hello', (req, res) => {
+  res.render('hello', { name: req.body.username });
+});
+
+app.listen(3000, () => {
+    console.log('The application is running on localhost:3000!')
 });
 
 app.get('/sandbox', (req, res) => {
     res.render('sandbox');
 });
 
-app.listen(3000, () => {
-    console.log('The application is running on localhost:3000!')
-});

@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(cookieParser());
 
 //const colors = [
 //  'red',
@@ -21,14 +23,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/cards', (req, res) => {
-    res.render('card', { prompt: "Who is buried in Grant's tomb?" });
+  res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is." });
 });
 
 app.get('/hello', (req, res) => {
-  res.render('hello');
+  res.render('hello', { name: req.cookies.username });
 });
 
 app.post('/hello', (req, res) => {
+  // send the cookie to the browser after form submission
+  res.cookie('username', req.body.username);
   res.render('hello', { name: req.body.username });
 });
 

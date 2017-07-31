@@ -12,8 +12,10 @@ router.get('/:id', (req, res) => {
     const { points } = cards[id];
     /*
       Create an object to store the data to be passed to the page
+      We pass the id so the the link on the card page will be able
+      to find the proper json object
     */
-    const templateData = { text };
+    const templateData = { id, text };
   /* 
   1. You can add properties to an object as needed  - we'll add the score,
   points, side, hint and prompt proerties to the templateData object as we go through this process
@@ -26,15 +28,20 @@ router.get('/:id', (req, res) => {
     templateData.score = points;
 
     if (side === 'question') {
-        templateData.side = 'q';
         templateData.hint = hint;
+        templateData.side = 'question';
+        templateData.sideToShow = 'answer';
+        templateData.sideToShowDisplay = 'Answer';
+        
       
     /* You don't have to pass all the params - just the ones you want
         to use in this request to render
     */
-    } else {
+    } else if ( side === 'answer' ) {
         //templateData.side = 'a';
         templateData.prompt = prompt;
+        templateData.sideToShow = 'question';
+        templateData.sideToShowDisplay = 'Question';
     }
     
   res.render('card', templateData);

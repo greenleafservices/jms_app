@@ -4,7 +4,7 @@ extends layout.pug
 block content
     section#content
     
-      if side === "q"
+      if side === "question"
         p  This one is worth :  #{score} points
       else  
          p That one was worth:  #{score} points 
@@ -16,9 +16,13 @@ block content
         p
           i Hint: #{hint}
       
+      a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay
+      br
       if prompt
         
           br
           b #{prompt}
-      
+          br
+          a(href=`${(id)}?side=${sideToShow}`)= sideToShowDisplay
+          
       

@@ -5,27 +5,37 @@
             {
                 "question": "What language are Express apps written in?",
                 "hint": "It starts with a \"J\"",
-                "answer": "JavaScript"
+                "answer": "JavaScript",
+                "prompt": "Try another question",
+                "points": "100"
             },
             {
                 "question": "What is one way a website can store data in a user's browser?",
                 "hint": "They are delicious with milk",
-                "answer": "Cookies"
+                "answer": "Cookies",
+                "prompt": "Try another question",
+                "points": "90"
             },
             {
                 "question": "What is a common way to shorten the response object's name inside middleware?",
                 "hint": "It has the same abbreviation as \"resolution\"",
-                "answer": "res"
+                "answer": "res",
+                "prompt": "Try another question",
+                "points": "80"
             },
             {
                 "question": "How many different values can booleans have?",
                 "hint": "Think: binary",
-                "answer": "2"
+                "answer": "2",
+                "prompt": "Try another question",
+                "points": "70"
             },
             {
                 "question": "Which HTML element can contain JavaScript?",
                 "hint": "It starts with an \"s\"",
-                "answer": "<script>"
+                "answer": "<script>",
+                "prompt": "Try another question",
+                "points": "60"
             }
         ]
     }

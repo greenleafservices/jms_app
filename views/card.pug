@@ -3,11 +3,22 @@ extends layout.pug
 
 block content
     section#content
-      
+    
+      if side === "q"
+        p  This one is worth :  #{score} points
+      else  
+         p That one was worth:  #{score} points 
           
       h2= text
-      if hint
+      
+      if hint 
+        br
         p
           i Hint: #{hint}
-      else
-        h3 Sorry, no hint is available for this question
+      
+      if prompt
+        
+          br
+          b #{prompt}
+      
+      

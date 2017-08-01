@@ -18,11 +18,15 @@ block content
       
       a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay
       br
+      br
+      a(href='/cards') Next card
       if prompt
         
           br
           b #{prompt}
           br
           a(href=`${(id)}?side=${sideToShow}`)= sideToShowDisplay
+          br
+          a(href='/cards') Next card
           
       

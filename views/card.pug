@@ -1,32 +1,19 @@
+extends app
 
-extends layout.pug
-
-block content
-    section#content
-    
-      if side === "question"
-        p  This one is worth :  #{score} points
-      else  
-         p That one was worth:  #{score} points 
-          
-      h2= text
-      
-      if hint 
-        br
-        p
-          i Hint: #{hint}
-      
-      a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay
-      br
-      br
-      a(href='/cards') Next card
-      if prompt
-        
-          br
-          b #{prompt}
-          br
-          a(href=`${(id)}?side=${sideToShow}`)= sideToShowDisplay
-          br
-          a(href='/cards') Next card
-          
-      
+block card
+  section(class=`flashcards`)
+    .card(class=`card-${side}`)
+      .card-header
+      h1.card-title= side
+      #content
+        h2= text
+        if hint
+          p.hint
+            i= hint
+      .card-flip-wrap
+        a(href=`${id}?side=${sideToShow}`)
+          img.card-flip(src='/static/img/flip.svg')
+      .card-next
+        a(href='/cards')
+          img(src="/static/img/next.svg")
+    script(src='/static/js/app.js')

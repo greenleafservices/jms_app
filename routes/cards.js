@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
     const { side } = req.query;
     const { id } = req.params;
     if ( !side ) {
-      res.redirect(`/cards/${id}?side=question`);
+      return res.redirect(`/cards/${id}?side=question`);
     }
     const name = req.cookies.username;
     const text = cards[id][side];
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
       We pass the id so the the link on the card page will be able
       to find the proper json object
     */
-    const templateData = { id, text, name };
+    const templateData = { id, text, name, side };
   /* 
   1. You can add properties to an object as needed  - we'll add the score,
   points, side, hint and prompt proerties to the templateData object as we go through this process

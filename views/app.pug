@@ -4,7 +4,7 @@ block main
     section.namecard
         .namecard-login
             if name
-                p.namecard-greeting Welcome, #{name}!
+                p.namecard-greeting Welcome there, #{name}!
                 form.namecard-exit(action='/goodbye', method='POST')
                     button(type='submit')
                         img(src='/static/img/close.svg')
